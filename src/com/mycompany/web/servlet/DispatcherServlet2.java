@@ -12,7 +12,7 @@ public class DispatcherServlet2 extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		String contextConfigLocation = config.getInitParameter("contextConfigLocation");
-		System.out.println("contextConfigLocation" + contextConfigLocation);
+		System.out.println("contextConfigLocation : " + contextConfigLocation);
 		System.out.println("네 알겠습니다. 나는  " + contextConfigLocation + "이 경로에 있는 파일을 읽고 적용을 하겠습니다.");
 		
 	}
@@ -20,7 +20,7 @@ public class DispatcherServlet2 extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("DispatcherServlet2 service run");
+		System.out.println("DispatcherServlet2 service run...");
 		
 
 		

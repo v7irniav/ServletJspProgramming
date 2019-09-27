@@ -3,37 +3,64 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
-	<servlet><!--순서 중요 -->
-		<servlet-name>dispatcher</servlet-name>
-		<!--톰캣은 헬로라는 이름은 밑에 HelloServlet이라는 클래스를 	알게 하는것 -->
-		<!-- <servlet-class>com.mycompany.web.servlet.DispatcherServlet1</servlet-class>경로를 지정해 준다 
-		<init-param>무언가 초기화 할때 필요한 정보 init-param은 변수다 초기화 할대 변수와 변수값이 준다는거다 
-			<param-name>x</param-name>변수 이름은 x 
-			<param-value>100</param-value>값은 10이라는 뜻이다 
-		</init-param>
-		<init-param>무언가 초기화 할때 필요한 정보 init-param은 변수다 초기화 할대 변수와 변수값이 준다는거다 
-			<param-name>y</param-name>변수 이름은 x 
-			<param-value>200</param-value>값은 10이라는 뜻이다 
-		</init-param> -->
-		
-		<servlet-class>com.mycompany.web.servlet.DispatcherServlet2</servlet-class>
-		<!--/WEB-INF/servletContext.xml라고 정의된 내용되로 DispatcherServlet2이 동작했음 좋겠습니다 -->
-		<init-param><!--어더한 서블릿에서 정보를 제공하는 목적으로 작성된다.  -->
-			<param-name>contextConfigLocation</param-name><!--변수이름 contextConfigLocation라는 이름은 마음대로 바꾸거나 정하면 안된다 -->
-			<!--파라메타가 알수 있는 이름으로 줘야 한다 서블릿에 메게변수 이름대로 준다  -->
-			<param-value>/WEB-INF/servletContext.xml</param-value>
-			<!--벨류 값만 다르게 줄수 있다.  -->
-		</init-param>
-		<!--어떤 서블릿을 작성할때 contextConfigLocation 이름대로 값을 얻는다 그러므로   <param-name>contextConfigLocation</param-name>을 선언한다
-		스프링 프레임웍이 제공해주는contextConfigLocation를 사용한다 xml경로만 어디 있다는것을 정해 주면 된다.-->
-		
-		
-		
-		<load-on-startup>1</load-on-startup><!--디플로이 할때 바로 만들겠다  정해진 순서가 있으므로 init 밑에다가 만들어줘야 한다-->
+
+	<!--DispatcherServlet1설정  -->
+	<servlet>
+		<servlet-name>dispatcher1</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet1</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name><!--헬로를 언제 실행할것인가 -->
-		<url-pattern>/</url-pattern><!--컨텍스트Rkwl 생략됬다 http://localhost:8080/ServletJspProgramming까지 
-			생략된거다 -->
+		<servlet-name>dispatcher1</servlet-name>
+		<url-pattern>/dispatcher1</url-pattern>
+	</servlet-mapping>
+	
+	<!--DispatcherServlet2설정  -->
+	<servlet><!--순서 중요 -->
+		<servlet-name>dispatcher2</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet2</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servletContext.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher2</servlet-name>
+		<url-pattern>/dispatcher2</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!--DispatcherServlet3설정  -->
+	<servlet>
+		<servlet-name>dispatcher3</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet3</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher3</servlet-name>
+		<url-pattern>/dispatcher3</url-pattern>
+	</servlet-mapping>
+	
+	<!--DispatcherServlet4설정  -->
+	<servlet>
+		<servlet-name>dispatcher4</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet4</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher4</servlet-name>
+		<url-pattern>/dispatcher4</url-pattern>
+	</servlet-mapping>
+	
+	<!--DispatcherServlet5설정  -->
+	<servlet>
+		<servlet-name>dispatcher5</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet5</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher5</servlet-name>
+		<url-pattern>/dispatcher5</url-pattern>
 	</servlet-mapping>
 </web-app>
