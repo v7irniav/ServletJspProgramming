@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%-- <%request.setCharacterEncoding("UTF-8"); %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,7 @@ body, html {
 	flex-grow: 1;
 	height: 80%;
 	display: flex;
+	min-height: 0;
 }
 
 #sideBar {
@@ -86,6 +88,7 @@ body, html {
 						<li><a href="dispatcher5?name=hongkildong&age=25" target="iframe">요청 파라미터 받기</a>
 					</li>
 					<li>
+					<p>요청 파라미터 전달</p>
 					<form action="dispatcher5" method="get" target="iframe">
 							<input type="text" name="name" value="hongkildong" /> 
 							<input type="number" name="age" value="25" /> 
@@ -97,13 +100,32 @@ body, html {
 							<input type="submit" value="POST 방식으로 요청" />
 						</form>
 					</li>
+					<li>
+					<p>요청 파라미터 한글 처리</p>
+					<form action="dispatcher6" method="get" target="iframe">
+							<input type="text" name="title"/> 
+							<input type="text" name="content"/> 
+							<input type="submit" value="GET 방식으로 요청" />
+						</form>
+						<form action="dispatcher6" method="post" target="iframe">
+							<input type="text" name="title"/> 
+							<input type="text" name="content"/> 
+							<input type="submit" value="POST 방식으로 요청" />
+						</form>
+					</li>
+					<li>
+						<p>객체 사용 범위</p>
+						<a href="dispatcher7" target="iframe">객체 저장하기</a>	<br/>
+						<a href="dispatcher8" target="iframe">객체 가져오기</a>	<br/>
+						
+					</li>
 				</ul>
 			</div>
 			<div id="center">
 				<iframe name="iframe" src="http://tomcat.apache.org" frameborder="0"></iframe>
 			</div>
 		</div>
-		<div id="footer">2019. IoT. ëë³´</div>
+		<div id="footer">2019. IoT. 바보</div>
 	</div>
 </body>
 </html>

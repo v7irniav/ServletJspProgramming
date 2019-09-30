@@ -3,6 +3,32 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
+	
+	<!-- ContextLoaderListener 설정  -->
+	<listener><!--어플리케이션을 만들때 뭘 해야 되겠다 언 디플로이 할때 뭐 해야되겠다 할때 사용한다  -->
+		<listener-class>com.mycompany.web.contextlistener.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<!-- CharacterEncodingFilter 설정 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.mycompany.web.filter.CharacterEncodingFilter</filter-class>
+		<!-- 이놈이 필터니까 언제 실행할건지 톰캣에 설정해줘야 한다 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<!--클라이언트에 요청이 들어오면 무조건 실행되게 해야 한다  -->
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern><!--앞으로 모든 요청은 이 필터를 거쳐서 실행된다.  -->
+	</filter-mapping>
+
 
 	<!--DispatcherServlet1설정  -->
 	<servlet>
@@ -63,4 +89,40 @@
 		<servlet-name>dispatcher5</servlet-name>
 		<url-pattern>/dispatcher5</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!--DispatcherServlet6설정  -->
+	<servlet>
+		<servlet-name>dispatcher6</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet6</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher6</servlet-name>
+		<url-pattern>/dispatcher6</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!--DispatcherServlet7설정  -->
+	<servlet>
+		<servlet-name>dispatcher7</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet7</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher7</servlet-name>
+		<url-pattern>/dispatcher7</url-pattern>
+	</servlet-mapping>
+	
+	<!--DispatcherServlet8설정  -->
+	<servlet>
+		<servlet-name>dispatcher8</servlet-name>
+		<servlet-class>com.mycompany.web.servlet.DispatcherServlet8</servlet-class>
+		<load-on-startup>1</load-on-startup><!--첫번째 실행할때 생성되는 서버가 실행될대 미리 실행해 놓기 위해 쓰는거 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher8</servlet-name>
+		<url-pattern>/dispatcher8</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

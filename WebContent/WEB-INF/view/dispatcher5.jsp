@@ -11,11 +11,14 @@
 		<!-- How1 --><!--주석이긴 하나 클라이언트로 간다 브라우저가 렌더링 하지 말아라 할때 사용한다 -->
 		<%-- How1 --%><%--jsp주석이다 응답을 만들때 이부분은 빠진다 즉 완전한 주석--%>
 		<%-- 똑같은 주석이긴 하다 현재 이 주석이 좋다 --%>
-		
-		name: <%=request.getAttribute("name")%> <br/><%--name에 저장되어 있는 값을 가져와라 --%>
-		age: <%=request.getAttribute("age")%><br/><br/><%--age에 저장되어 있는 값을 가져와라 --%>
+	 	name: <%=request.getAttribute("name")%> <br/><!-- name에 저장되어 있는 값을 가져와라 -->
+		age: <%=request.getAttribute("age")%><br/><br/><!-- age에 저장되어 있는 값을 가져와라 -->
 		<%--세미콜론을 붙이면 안된다. --%>
 		<%=3+5%><br/><%--하나의 값이 나오는건 쓸수 있다--%>
+		
+		<%-- name: <%=application.getAttribute("name")%> <br/>
+		age: <%=application.getAttribute("age")%><br/><br/> --%>
+		
 		
 		<%-- How2(Expression Language --%>
 		name= : ${name}<br/><%-- name에 하는 값을 ${ } 에 출력하라--%>
